@@ -25,7 +25,7 @@ Get-ADComputer -Filter "Description -like '*$user*'" -properties description | S
 $4 = {
 cls
 $superfind = Read-Host "Enter hostname"
-Invoke-Command -ComputerName $superfind -Credential BLUEGRASSCELL\ -ScriptBlock {function Get-FolderSize {
+Invoke-Command -ComputerName $superfind -Credential YOURDOMAIN\ -ScriptBlock {function Get-FolderSize {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory=$true,
@@ -46,7 +46,6 @@ Invoke-Command -ComputerName $superfind -Credential BLUEGRASSCELL\ -ScriptBlock 
         function Get-RoboFolderSizeInternal {
             [CmdletBinding()]
             param(
-                # Paths to report size, file count, dir count, etc. for.
                 [string[]] $Path,
                 [int] $Precision = 4)
             begin {
@@ -99,7 +98,6 @@ Invoke-Command -ComputerName $superfind -Credential BLUEGRASSCELL\ -ScriptBlock 
             if (-not (Test-Path -Path $p -PathType Container)) {
                 continue
             }
-            # We know we can't have -ComOnly here if we have -RoboOnly.
             if ($RoboOnly) {
                 Get-RoboFolderSizeInternal -Path $p -Precision $Precision
                 continue
@@ -164,19 +162,20 @@ Write-Host $BIGGEST}
 }
 $5 = {
 $sessioner = Read-Host "Who will you be PSSessioning?"
-Enter-PSSession -ComputerName $sessioner -Credential BLUEGRASSCELL\ 
+Enter-PSSession -ComputerName $sessioner -Credential YOURDOMAIN\ 
 }
 cls
 $start = {
 $choice = Read-Host "
 -------------------------------------------------------------------
-   _____ _    _ _____  ______ _____  ______ _____ _   _ _____  
-  / ____| |  | |  __ \|  ____|  __ \|  ____|_   _| \ | |  __ \ 
- | (___ | |  | | |__) | |__  | |__) | |__    | | |  \| | |  | |
-  \___ \| |  | |  ___/|  __| |  _  /|  __|   | | | . `  | |  | |
-  ____) | |__| | |    | |____| | \ \| |     _| |_| |\  | |__| |
- |_____/ \____/|_|    |______|_|  \_\_|    |_____|_| \_|_____/ 
- 
+
+██████╗  ██████╗ ██╗    ██╗███████╗██████╗ ███████╗██╗███╗   ██╗██████╗ 
+██╔══██╗██╔═══██╗██║    ██║██╔════╝██╔══██╗██╔════╝██║████╗  ██║██╔══██╗
+██████╔╝██║   ██║██║ █╗ ██║█████╗  ██████╔╝█████╗  ██║██╔██╗ ██║██║  ██║
+██╔═══╝ ██║   ██║██║███╗██║██╔══╝  ██╔══██╗██╔══╝  ██║██║╚██╗██║██║  ██║
+██║     ╚██████╔╝╚███╔███╔╝███████╗██║  ██║██║     ██║██║ ╚████║██████╔╝
+╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═══╝╚═════╝ 
+                                                                        
 -----------------------------------------------------------------
 1) IP to HOSTNAME
 
