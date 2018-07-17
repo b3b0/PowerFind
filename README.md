@@ -1,10 +1,10 @@
-# PowerFind
+# PowerFind⚡🔎
 ![alt text](https://imgur.com/tuNJtdC.png "PowerFind")
 
 
 Get more information on your internal hosts in less time.
 
-## Requirements⚡
+## Requirements
 - Windows Operating System on a Domain-connected machine
 - PowerShell
 - RSAT PowerShell administration tools
