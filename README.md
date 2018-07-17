@@ -2,7 +2,7 @@
 ![alt text](https://imgur.com/tuNJtdC.png "PowerFind")
 
 
-Get information on your internal more hosts in less time.
+Get more information on your internal hosts in less time.
 
 ## Requirements
 - Windows Operating System on a Domain-connected machine
