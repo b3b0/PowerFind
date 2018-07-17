@@ -1,5 +1,5 @@
 # PowerFind
-![alt text](https://imgur.com/tuNJtdC "PowerFind")
+![alt text](https://imgur.com/tuNJtdC.png "PowerFind")
 Get information on your internal more hosts in less time.
 
 ## Requirements
