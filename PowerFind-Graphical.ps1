@@ -10,6 +10,8 @@ if( -not (Test-Path $iconfold -PathType Container))
 Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
+[Net.ServicePointManager]::SecurityProtocol = 'tls12'
+
 $Form                            = New-Object system.Windows.Forms.Form
 $Form.ClientSize                 = '400,724'
 $Form.text                       = "PowerFind"
